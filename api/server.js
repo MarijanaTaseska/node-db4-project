@@ -1,9 +1,13 @@
 const express = require('express')
-const recepiesRouter = require('./recepies/recepies-router')
+const recepiesRouter = require('./recipes/recipes-router')
 
 const server = express()
 server.use(express.json())
 
-server.use('/api/recepies', recepiesRouter)
+server.use('/api/recipe', recepiesRouter)
+
+server.use('*', (req, res, next) => {
+    res.json({ api: 'up' })
+})
 
 module.exports = server
