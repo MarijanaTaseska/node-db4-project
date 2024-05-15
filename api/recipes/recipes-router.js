@@ -2,7 +2,7 @@ const router = require('express').Router()
 const Recipe = require('./recipes-model')
 
 router.get('/:recipe_id', (req, res, next) => {
-    Recipe.getRecepieById(req.params.recipe_id)
+    Recipe.getRecipesById(req.params.recipe_id)
     .then( resourse => {
         res.status(200).json(resourse)
     })
